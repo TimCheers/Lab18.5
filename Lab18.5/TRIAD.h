@@ -8,7 +8,7 @@ public:
 	TRIAD(int first, int second, int third);
 	TRIAD(const TRIAD& other);
 	TRIAD();
-	~TRIAD();
+	virtual ~TRIAD();
 	void Show() override;
 	void setTRIAD(int first, int second, int third);
 	bool operator == (const TRIAD& other);

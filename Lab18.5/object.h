@@ -6,5 +6,5 @@ class object
 public:
 	object() {}
 	~object() {}
-	virtual void Show() = 0; //virtual function
+	virtual void Show() = 0;
 };

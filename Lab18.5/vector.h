@@ -6,6 +6,7 @@ class vector
 {
 	object** First;
 	int size;
+	int pos;
 public:
 	int Size()
 	{
@@ -15,13 +16,15 @@ public:
 	{
 		First = nullptr;
 		size = 0;
+		pos = 0;
 	}
 	vector(int size)
 	{
+		pos = 0;
 		this->size = size;
 		First = new object * [size];
 	}
-	vector(vector &other)
+	vector(vector& other)
 	{
 		if (First != nullptr)
 		{
@@ -45,18 +48,13 @@ public:
 			First = nullptr;
 		}
 	}
-	void pushback(object *A)
+	void pushback(object* A)
 	{
-		object** tmp = new object * [size + 1];
-		for (int i = 0; i < size; i++)
+		if (pos < size)
 		{
-			tmp[i] = First[i];
+			First[pos] = A;
+			pos++;
 		}
-		tmp[size] = A;
-		delete[]A;
-		First = tmp;
-		tmp = nullptr;
-		size++;
 	}
 	friend ostream& operator << (ostream& out, vector& other);
 };
